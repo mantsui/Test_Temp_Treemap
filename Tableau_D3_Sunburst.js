@@ -7,7 +7,7 @@ var	Tableau_Array_of_Objects;
 
 window.onload= function() {
 	
-// When the webpage has loaded, load the viz
+// When the webpage has loaded, load the viz.
 	var Tableau_Sheet_Name = "Sales by Three Levels";
 
     var placeholder = document.getElementById('mySuperstoreViz');
