@@ -147,8 +147,8 @@ function Convert_To_TreeData(FlatData){
 function Draw_D3_Chart(nodeData){
 	
   // Define the dimensions of the visualization.
-  var width = 960,		//960
-      height = 700,		//700
+  var width = 525,		//960
+      height = 525,		//700
       radius = (Math.min(width, height) / 2) - 10;
 
   var formatNumber = d3.format(",d");
