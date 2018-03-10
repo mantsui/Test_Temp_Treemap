@@ -1,12 +1,12 @@
-/*html, body {
+html, body {
   margin: 0;
   height: 100%;
-}*/
+}
 
-html, body {
+/*html, body {
   margin: auto;
   width: 50%;	
-}
+}*/
 
 
 path {
@@ -14,9 +14,9 @@ path {
 	stroke-width: 3.5px;
 }
 
-/*
+
 center {
     margin: auto;
     width: 50%;
-}*/
+}
 
