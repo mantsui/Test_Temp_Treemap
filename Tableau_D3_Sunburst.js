@@ -148,7 +148,7 @@ function Draw_D3_Chart(nodeData){
 	
   // Define the dimensions of the visualization.
   var width = 600,		//960
-      height = 600,		//700
+      height = 580,		//700
       radius = (Math.min(width, height) / 2) - 10;
 
   var formatNumber = d3.format(",d");
