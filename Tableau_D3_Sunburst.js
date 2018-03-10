@@ -48,18 +48,18 @@ function Pass_Tableau_Data_to_D3(vizName, sheetName){
 			Array_of_Columns = TableauData.getColumns();
 			Tableau_Array_of_Array = TableauData.getData();
 			//getfieldnames(Array_of_Columns);	// Debug output
-			console.log('***** Debug output getData() *****');	// Debug output
-			console.log(Tableau_Array_of_Array);					// Debug output
+			//console.log('***** Debug output getData() *****');	// Debug output
+			//console.log(Tableau_Array_of_Array);			// Debug output
 			
 			/*Convert Tableau data into Array of Objects for D3 processing. */
 			Tableau_Array_of_Objects = ReduceToObjectTablulated(Array_of_Columns, Tableau_Array_of_Array);
-			console.log('***** Display Tableau Array_Of_Objects *****');	// Debug output
-			console.log(Tableau_Array_of_Objects);						// Debug output
+			//console.log('***** Display Tableau Array_Of_Objects *****');	// Debug output
+			//console.log(Tableau_Array_of_Objects);			// Debug output
 
 			var TableauTreeData = Convert_To_TreeData(Tableau_Array_of_Objects);
 						
-			console.log('***** Display Tree Data *****');	// Debug output
-			console.log(TableauTreeData);						// Debug output
+			//console.log('***** Display Tree Data *****');	// Debug output
+			//console.log(TableauTreeData);			// Debug output
 
 			//Generate D3 chart
 			Draw_D3_Chart(TableauTreeData);
