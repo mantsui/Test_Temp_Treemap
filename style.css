@@ -3,20 +3,9 @@ html, body {
   height: 100%;
 }
 
-/*html, body {
-  margin: auto;
-  width: 50%;	
-}*/
-
 
 path {
 	stroke:rgb(255, 255, 255);
 	stroke-width: 3.5px;
-}
-
-
-center {
-    margin: auto;
-    width: 50%;
 }
 
