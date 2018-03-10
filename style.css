@@ -1,15 +1,21 @@
-html, body {
+/*html, body {
   margin: 0;
   height: 100%;
+}*/
+
+html, body {
+  margin: auto;
 }
+
 
 path {
 	stroke:rgb(255, 255, 255);
 	stroke-width: 3.5px;
 }
 
+/*
 center {
     margin: auto;
     width: 50%;
-}
+}*/
 
