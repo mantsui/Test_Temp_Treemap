@@ -11,7 +11,7 @@ window.onload= function() {
 	var Tableau_Sheet_Name = "Sales by Three Levels";
 
     var placeholder = document.getElementById('mySuperstoreViz');
-    var vizURL = 'https://public.tableau.com/views/SampleDashboardSuperstore/DashboardProfitBreakdown';
+    var vizURL = 'https://public.tableau.com/views/SampleDashboardSuperstore/DashboardSalesSummary';
     var options = {
     	width: '1px',	//Original '1050px'
     	height: '1px',	//Original '1000px'
