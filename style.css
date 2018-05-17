@@ -3,7 +3,6 @@ html, body {
   height: 100%;
 }
 
-
 path {
 	stroke:rgb(255, 255, 255);
 	stroke-width: 3.5px;
@@ -11,4 +10,29 @@ path {
 
 body {
     background-color: rgb(230,230,230);
+}
+
+.flex-container {
+  display: flex;
+}
+
+h2 {
+    color: #55007f;
+    font-family: verdana;
+    font-size: 100%;
+}
+
+.node {
+  fill: steelblue;
+  stroke: none;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 5px;
+}
+
+.flex-container {
+  display: flex;
 }
