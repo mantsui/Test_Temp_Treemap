@@ -4,12 +4,12 @@ html, body {
 }
 
 path {
-	stroke:rgb(255, 255, 255);
-	stroke-width: 3.5px;
+  stroke:rgb(255, 255, 255);
+  stroke-width: 3.5px;
 }
 
 body {
-    background-color: rgb(230,230,230);
+  background-color: rgb(230,230,230);
 }
 
 .flex-container {
@@ -17,9 +17,9 @@ body {
 }
 
 h2 {
-    color: #55007f;
-    font-family: verdana;
-    font-size: 100%;
+  color: #55007f;
+  font-family: verdana;
+  font-size: 100%;
 }
 
 .node {
@@ -33,6 +33,59 @@ h2 {
   stroke-width: 5px;
 }
 
-.flex-container {
-  display: flex;
+#chart {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+text {
+  pointer-events: none;
+}
+
+.grandparent text {
+  font-weight: bold;
+}
+
+rect {
+  fill: none;
+  stroke: #fff;
+}
+
+rect.parent,
+.grandparent rect {
+  stroke-width: 2px;
+}
+
+rect.parent {
+  pointer-events: none;
+}
+
+.grandparent rect {
+  fill: orange;
+}
+
+.grandparent:hover rect {
+  fill: #ee9700;
+}
+
+.children rect.parent,
+.grandparent rect {
+  cursor: pointer;
+}
+
+.children rect.parent {
+  fill: #bbb;
+  fill-opacity: .5;
+}
+
+.children:hover rect.child {
+  fill: #bbb;
 }
