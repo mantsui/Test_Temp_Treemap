@@ -16,8 +16,8 @@ window.onload= function() {
 	var placeholder = document.getElementById('myMedicareOPViz');
 	var vizURL = 'https://public.tableau.com/views/MedicareChargeProject_0/OPChargeDashboardD3Pair';
 	var options = {
-		width: '1200px',
-		height: '720px',
+		width: '750px',
+		height: '680px',
 		hideToolbar: true,
 		hideTabs: true,
 	
@@ -258,8 +258,8 @@ var defaults = {
 		rootname: "TOP",
 		format: ",d",
 		title: "",
-		width: 660,
-		height: 740
+		width: 600,
+		height: 700
 };
 
 function Draw_D3_Treemap(o, data) {
