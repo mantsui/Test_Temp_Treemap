@@ -258,8 +258,8 @@ var defaults = {
 		rootname: "TOP",
 		format: ",d",
 		title: "",
-		width: 650,
-		height: 600
+		width: 600,
+		height: 700
 };
 
 function Draw_D3_Treemap(o, data) {
