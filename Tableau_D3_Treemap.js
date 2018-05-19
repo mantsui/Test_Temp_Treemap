@@ -259,7 +259,7 @@ var defaults = {
 		format: ",d",
 		title: "",
 		width: 680,
-		height: 680
+		height: 650
 };
 
 function Draw_D3_Treemap(o, data) {
