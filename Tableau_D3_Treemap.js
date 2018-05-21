@@ -24,8 +24,8 @@ window.onload= function() {
 		onFirstInteractive: function () {
 			// Function call to get tableau data after Tableau visualization is complete.
 			Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
-						Measure_Name, Display_Measure_Name, 
-						Draw_D3_Treemap); 
+															Measure_Name, Display_Measure_Name, 
+															Draw_D3_Treemap); 
 			
 		}		
 	};
@@ -41,6 +41,8 @@ window.onload= function() {
 			
 			console.log("Current Parameter Value: " + para_CurrentValue);
 			console.log(para_CurrentValue);
+			resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Provider State");//Test
+			resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");//Test
 			
 			switch(para_CurrentValue){
 				case "Total Outpatient Services": 
@@ -61,8 +63,8 @@ window.onload= function() {
 			
 			// Function call to get tableau data, transform and load to D3 chart generation after parameter change event.
 			Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
-						Measure_Name, Display_Measure_Name, 
-						Draw_D3_Treemap);
+															Measure_Name, Display_Measure_Name, 
+															Draw_D3_Treemap);
 															
 		});		
 	});	
@@ -77,8 +79,8 @@ window.onload= function() {
 				// Function call to get tableau data, transform and load to D3 chart generation 
 				// after filter change to "Calendar Year" or "APC".
 				Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
-							Measure_Name, Display_Measure_Name,
-							Draw_D3_Treemap);
+																Measure_Name, Display_Measure_Name,
+																Draw_D3_Treemap);
 			}			
 		});
 	});
@@ -111,8 +113,8 @@ let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, 
 	sheet.getSummaryDataAsync(options).then(function(TableauData){
 			Array_of_Columns = TableauData.getColumns();
 			Tableau_Array_of_Array = TableauData.getData();
-			//console.log('***** Debug output getData() *****');	// Debug output
-			//console.log(Tableau_Array_of_Array);			// Debug output
+			//console.log('***** Debug output getData() *****');		// Debug output
+			//console.log(Tableau_Array_of_Array);									// Debug output
 			//console.log('***** Debug output getColumns() *****');	// Debug output
 			//console.log(Array_of_Columns);												// Debug output
 			
@@ -163,8 +165,8 @@ function ReduceToObjectTablulated(cols, data){
 		Array_Of_Objects.push(SingleObject);	// Dynamically append object to the array
 
 		//console.log('*****************');	// Debug output
-		//console.log(SingleObject);		// Debug output
-		//console.log(Array_Of_Objects);	// Debug output
+		//console.log(SingleObject);				// Debug output
+		//console.log(Array_Of_Objects);		// Debug output
 		
 	} //Looping through data array of objects.
 	
@@ -258,8 +260,8 @@ var defaults = {
 		rootname: "TOP",
 		format: ",d",
 		title: "",
-		width: 600,
-		height: 700
+		width: 600, //660
+		height: 700 //740
 };
 
 function Draw_D3_Treemap(o, data) {
@@ -433,8 +435,9 @@ function Draw_D3_Treemap(o, data) {
 						default:
 							PrefixString = "Error: No display name assigned";
 					}				
-				
-					return d.key + "\n" + PrefixString + formatNumber(d.value); 
+
+					//return d.key + "\n" + PrefixString + formatNumber(d.value);
+					return d.key + "\n" + PrefixString + Math.round(d.value); 
 				});
 		children.append("text")
 				.attr("class", "ctext")
@@ -474,8 +477,9 @@ function Draw_D3_Treemap(o, data) {
 						default:
 							PrefixString = "Error: No display name assigned";
 					}
-				
-					return PrefixString + formatNumber(d.value); 
+					
+					//return PrefixString + formatNumber(d.value);
+					return PrefixString + Math.round(d.value);
 				});
 				
 		t.call(text);
@@ -531,12 +535,13 @@ function Draw_D3_Treemap(o, data) {
 					
 					default:
 						// This is D3 zoom to "Zip Desc" level.
+						resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");//Test
 						setFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc", d["key"]);
 				}				
 				
 			}
 			catch(err){
-				// This is D3 zoom to highest level, natioal level.
+				// This is D3 zoom to highest level, national level.
 				resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");
 				resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Provider State");
 			}
@@ -587,9 +592,13 @@ function Draw_D3_Treemap(o, data) {
 				PrefixString = "Error: No display name assigned";
 		}
 		
-		return d.parent
+		
+		/*return d.parent
 				? name(d.parent) + " / " + d.key + " (" + PrefixString + formatNumber(d.value) + ")"
-				: d.key + " (" + PrefixString + formatNumber(d.value) + ")";				
+				: d.key + " (" + PrefixString + formatNumber(d.value) + ")";*/
+		return d.parent
+				? name(d.parent) + " / " + d.key + " (" + PrefixString + Math.round(d.value) + ")"
+				: d.key + " (" + PrefixString + Math.round(d.value) + ")";
 				
 	}
 }
