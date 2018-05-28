@@ -530,11 +530,22 @@ function Draw_D3_Treemap(o, data) {
 						// This is D3 zoom to "Provider State" level.
 						setFilterTo(vizMedicareOPChrg, "OP Map D3", "Provider State", d["key"]);
 						resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");
-					break;	//Test
+					break;
+
+					case "Outpatient Charges": 
+						// This is D3 zoom to "Provider State" level.
+						setFilterTo(vizMedicareOPChrg, "OP Map D3", "Provider State", d["key"]);
+						resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");
+					break;
+
+					case "Outpatient Payments": 
+						// This is D3 zoom to "Provider State" level.
+						setFilterTo(vizMedicareOPChrg, "OP Map D3", "Provider State", d["key"]);
+						resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");
+					break;
 					
 					default:
 						// This is D3 zoom to "Zip Desc" level.
-						resetTextFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc");//Test
 						setFilterTo(vizMedicareOPChrg, "OP Map D3", "Zip Code Desc", d["key"]);
 				}				
 				
