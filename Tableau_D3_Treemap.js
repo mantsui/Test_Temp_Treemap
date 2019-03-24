@@ -128,11 +128,10 @@ let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, 
 			
 			stringToNumericObjInArray(Tableau_Array_of_Objects);
 			
-			console.log('***** Display Tableau Array_Of_Objects Modified *****');	// Debug output
-			console.log(Tableau_Array_of_Objects);																// Debug output
+			console.log('Tableau_Array_of_Objects ', Tableau_Array_of_Objects);	// Debug output
 
 			var Tableau_data = d3.nest().key(function(d) { return d["Provider State"]; }).key(function(d) { return d["Zip Code Desc"]; }).entries(Tableau_Array_of_Objects);
-
+			console.log('Tableau_data ', Tableau_data);	// Debug output
 			
 			// Verify callback object type is a function to call the draw D3 chart
 			if(typeof callback === "function"){
