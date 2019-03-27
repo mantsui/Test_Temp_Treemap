@@ -113,10 +113,8 @@ let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, 
 	sheet.getSummaryDataAsync(options).then(function(TableauData){
 			Array_of_Columns = TableauData.getColumns();
 			Tableau_Array_of_Array = TableauData.getData();
-			//console.log('***** Debug output getData() *****');	// Debug output
-			//console.log(Tableau_Array_of_Array);			// Debug output
-			//console.log('***** Debug output getColumns() *****');	// Debug output
-			//console.log(Array_of_Columns);												// Debug output
+			console.log('TableauData.getColumns(), Array_of_Columns ', Array_of_Columns);  //Debug output
+			console.log('TableauData.getData() Tableau_Array_of_Array ', Tableau_Array_of_Array);  //Debug output
 			
 			/*Convert Tableau data into Array of Objects for D3 processing. */
 			var Tableau_Array_of_Objects = ReduceToObjectTablulated(Array_of_Columns, Tableau_Array_of_Array);
