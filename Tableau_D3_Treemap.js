@@ -134,7 +134,7 @@ let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, 
 			// Verify callback object type is a function to call the draw D3 chart
 			if(typeof callback === "function"){
 				// Javascript callback function to dynamically draw D3 chart
-				callback({title: "Medicare Outpatient Services"}, {key: strDisplayName, values: Tableau_data});
+				//callback({title: "Medicare Outpatient Services"}, {key: strDisplayName, values: Tableau_data});
 			}			
 	});
 	
