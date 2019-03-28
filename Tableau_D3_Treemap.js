@@ -24,8 +24,7 @@ window.onload= function() {
 		onFirstInteractive: function () {
 			// Function call to get tableau data after Tableau visualization is complete.
 			Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
-						Measure_Name, Display_Measure_Name, 
-						xxx); 
+						Measure_Name, Display_Measure_Name); 
 			/*Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
 						Measure_Name, Display_Measure_Name, 
 						Draw_D3_Treemap); */
@@ -66,8 +65,7 @@ window.onload= function() {
 			
 			// Function call to get tableau data, transform and load to D3 chart generation after parameter change event.
 			Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
-						Measure_Name, Display_Measure_Name, 
-						xxx);
+						Measure_Name, Display_Measure_Name);
 			/*Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
 						Measure_Name, Display_Measure_Name, 
 						Draw_D3_Treemap);*/															
@@ -99,7 +97,8 @@ window.onload= function() {
 
 // Import data from target dashboard-worksheet using Tableau Javascript API
 // and converting the data into a format for D3 input.
-let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, strMeasureName, strDisplayName, callback){
+let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, strMeasureName, strDisplayName){
+//let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, strMeasureName, strDisplayName, callback){
 	
 	var sheet = vizName.getWorkbook().getActiveSheet().getWorksheets().get(sheetName);
 	
@@ -137,10 +136,10 @@ let Pass_Tableau_Data_to_D3 = function(vizName, sheetName, arrayDimensionNames, 
 			console.log('Tableau_data ', Tableau_data);	// Debug output
 			
 			// Verify callback object type is a function to call the draw D3 chart
-			if(typeof callback === "function"){
+			/*if(typeof callback === "function"){
 				// Javascript callback function to dynamically draw D3 chart
 				callback({title: "Medicare Outpatient Services"}, {key: strDisplayName, values: Tableau_data});
-			}			
+			}*/			
 	});
 	
 };
