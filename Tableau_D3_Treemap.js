@@ -82,8 +82,10 @@ window.onload= function() {
 				// Function call to get tableau data, transform and load to D3 chart generation 
 				// after filter change to "Calendar Year" or "APC".
 				Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
+							Measure_Name, Display_Measure_Name);
+				/*Pass_Tableau_Data_to_D3(vizMedicareOPChrg, Tableau_Sheet_Name, Ordered_Dimension_List_to_D3, 
 							Measure_Name, Display_Measure_Name,
-							Draw_D3_Treemap);
+							Draw_D3_Treemap);*/
 			}			
 		});
 	});
