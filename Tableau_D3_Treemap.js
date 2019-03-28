@@ -171,53 +171,6 @@ function ReduceToObjectTablulated(cols, data){
 	return Array_Of_Objects;
 }
 
-
-// Convert tablulated data into hierarchical data for most advanced D3 charts
-// Not all D3 charts requires hierarchical data as input (ie: simple D3 line chart, simple D3 bar chart)
-function Convert_To_TreeData(FlatData, arrayDimensionNames, strValueName, strDisplayValue){
-	
-	// Clone a local array of Dimension Names so the array argument is pass by value and not by pass reference
-	var localArrayDimensionNames = arrayDimensionNames.slice();
-	
-	var TreeData = { name : strDisplayValue, children : [] };
-	var final_Child_Level = localArrayDimensionNames.pop();
-	var non_Final_Children_Levels = localArrayDimensionNames;
-
-	// Convert tabulated data to tree data.
-	// For each data row, loop through the expected levels traversing the output tree
-	FlatData.forEach(function(d){
-		// Keep this as a reference to the current level
-		var depthCursor = TreeData.children;
-		// Go down one level at a time
-		non_Final_Children_Levels.forEach(function( property, depth ){
-
-			// Look to see if a branch has already been created
-			var index;
-			depthCursor.forEach(function(child,i){
-				if ( d[property] == child.name ) index = i;
-			});
-			// Add a branch if it isn't there
-			if ( isNaN(index) ) {
-				depthCursor.push({ name : d[property], children : []});
-				index = depthCursor.length - 1;
-			}
-			// Now reference the new child array as we go deeper into the tree
-			depthCursor = depthCursor[index].children;
-			// This is a leaf, so add the last element to the specified branch
-
-			//Remove all commas in a text string
-			var TempString = d[strValueName].replace(/,/g,"");
-			Target_Key = Math.round(+TempString); //Convert String to Numeric
-			
-			if ( depth === non_Final_Children_Levels.length - 1 ) {
-				depthCursor.push({ name : d[final_Child_Level], size : Target_Key });
-			}
-		});
-	});
-	
-	return TreeData;
-}
-
 /* ---------------- Part 2: Convert Tableau Data to D3 Hierarchical Data [End] ---------------- */
 
 
